@@ -1,0 +1,1166 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WordleClone.MainPage">
+
+    <StackLayout>
+        <StackLayout VerticalOptions="Start">
+            <Frame x:Name="TitleLabel" HorizontalOptions="FillAndExpand" HasShadow="False">
+                <Label Text="Wordle" FontSize="Title" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+            </Frame>
+        </StackLayout>
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <AbsoluteLayout x:Name="WordleAbsoluteLayout" Padding="0" HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal" AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1" AbsoluteLayout.LayoutFlags="PositionProportional">
+                    <Grid x:Name="WordleGrid">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <!--Row 1-->
+                        <Frame x:Name="frame00"
+                             OutlineColor="LightGray"
+                             BackgroundColor="White"
+                             HasShadow="False"
+                             Padding="0"
+                             CornerRadius="0"
+                             Grid.Row = "0"
+                             Grid.Column = "0">
+                            <Label x:Name="label00"
+                                 HorizontalTextAlignment="Center"
+                                 VerticalTextAlignment="Center"
+                                 FontSize="Large"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+                        <Frame x:Name="frame01"
+                             OutlineColor="LightGray"
+                             BackgroundColor="White"
+                             HasShadow="False"
+                             Padding="0"
+                             CornerRadius="0"
+                             Grid.Row = "0"
+                             Grid.Column = "1">
+                            <Label x:Name="label01"
+                                 HorizontalTextAlignment="Center"
+                                 VerticalTextAlignment="Center"
+                                 FontSize="Large"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+                        <Frame x:Name="frame02"
+                             OutlineColor="LightGray"
+                             BackgroundColor="White"
+                             HasShadow="False"
+                             Padding="0"
+                             CornerRadius="0"
+                             Grid.Row = "0"
+                             Grid.Column = "2">
+                            <Label x:Name="label02"
+                                 HorizontalTextAlignment="Center"
+                                 VerticalTextAlignment="Center"
+                                 FontSize="Large"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+                        <Frame x:Name="frame03"
+                             OutlineColor="LightGray"
+                             BackgroundColor="White"
+                             HasShadow="False"
+                             Padding="0"
+                             CornerRadius="0"
+                             Grid.Row = "0"
+                             Grid.Column = "3">
+                            <Label x:Name="label03"
+                                 HorizontalTextAlignment="Center"
+                                 VerticalTextAlignment="Center"
+                                 FontSize="Large"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+                        <Frame x:Name="frame04"
+                             OutlineColor="LightGray"
+                             BackgroundColor="White"
+                             HasShadow="False"
+                             Padding="0"
+                             CornerRadius="0"
+                             Grid.Row = "0"
+                             Grid.Column = "4">
+                            <Label x:Name="label04"
+                                 HorizontalTextAlignment="Center"
+                                 VerticalTextAlignment="Center"
+                                 FontSize="Large"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+
+                        <!--Row 2-->
+                        <Frame x:Name="frame10"
+                                OutlineColor="LightGray"
+                                BackgroundColor="White"
+                                HasShadow="False"
+                                Padding="0"
+                                CornerRadius="0"
+                                Grid.Row = "1"
+                                Grid.Column = "0">
+                            <Label x:Name="label10"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Large"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+                        <Frame x:Name="frame11"
+                                OutlineColor="LightGray"
+                                BackgroundColor="White"
+                                HasShadow="False"
+                                Padding="11"
+                                CornerRadius="0"
+                                Grid.Row = "1"
+                                Grid.Column = "1">
+                            <Label x:Name="label11"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Large"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+                        <Frame x:Name="frame12"
+                                OutlineColor="LightGray"
+                                BackgroundColor="White"
+                                HasShadow="False"
+                                Padding="0"
+                                CornerRadius="0"
+                                Grid.Row = "1"
+                                Grid.Column = "2">
+                            <Label x:Name="label12"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Large"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+                        <Frame x:Name="frame13"
+                                OutlineColor="LightGray"
+                                BackgroundColor="White"
+                                HasShadow="False"
+                                Padding="0"
+                                CornerRadius="0"
+                                Grid.Row = "1"
+                                Grid.Column = "3">
+                            <Label x:Name="label13"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Large"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+                        <Frame x:Name="frame14"
+                                OutlineColor="LightGray"
+                                BackgroundColor="White"
+                                HasShadow="False"
+                                Padding="0"
+                                CornerRadius="0"
+                                Grid.Row = "1"
+                                Grid.Column = "4">
+                            <Label x:Name="label14"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Large"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+
+                        <!--Row 3-->
+                        <Frame x:Name="frame20"
+                                OutlineColor="LightGray"
+                                BackgroundColor="White"
+                                HasShadow="False"
+                                Padding="0"
+                                CornerRadius="0"
+                                Grid.Row = "2"
+                                Grid.Column = "0">
+                            <Label x:Name="label20"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Large"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+                        <Frame x:Name="frame21"
+                                OutlineColor="LightGray"
+                                BackgroundColor="White"
+                                HasShadow="False"
+                                Padding="0"
+                                CornerRadius="0"
+                                Grid.Row = "2"
+                                Grid.Column = "1">
+                            <Label x:Name="label21"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Large"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+                        <Frame x:Name="frame22"
+                                OutlineColor="LightGray"
+                                BackgroundColor="White"
+                                HasShadow="False"
+                                Padding="0"
+                                CornerRadius="0"
+                                Grid.Row = "2"
+                                Grid.Column = "2">
+                            <Label x:Name="label22"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Large"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+                        <Frame x:Name="frame23"
+                                OutlineColor="LightGray"
+                                BackgroundColor="White"
+                                HasShadow="False"
+                                Padding="0"
+                                CornerRadius="0"
+                                Grid.Row = "2"
+                                Grid.Column = "3">
+                            <Label x:Name="label23"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Large"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+                        <Frame x:Name="frame24"
+                                OutlineColor="LightGray"
+                                BackgroundColor="White"
+                                HasShadow="False"
+                                Padding="0"
+                                CornerRadius="0"
+                                Grid.Row = "2"
+                                Grid.Column = "4">
+                            <Label x:Name="label24"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Large"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+                        <!--Row 4-->
+                        <Frame x:Name="frame30"
+                                OutlineColor="LightGray"
+                                BackgroundColor="White"
+                                HasShadow="False"
+                                Padding="0"
+                                CornerRadius="0"
+                                Grid.Row = "3"
+                                Grid.Column = "0">
+                            <Label x:Name="label30"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Large"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+                        <Frame x:Name="frame31"
+                                OutlineColor="LightGray"
+                                BackgroundColor="White"
+                                HasShadow="False"
+                                Padding="0"
+                                CornerRadius="0"
+                                Grid.Row = "3"
+                                Grid.Column = "1">
+                            <Label x:Name="label31"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Large"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+                        <Frame x:Name="frame32"
+                                OutlineColor="LightGray"
+                                BackgroundColor="White"
+                                HasShadow="False"
+                                Padding="0"
+                                CornerRadius="0"
+                                Grid.Row = "3"
+                                Grid.Column = "2">
+                            <Label x:Name="label32"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Large"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+                        <Frame x:Name="frame33"
+                                OutlineColor="LightGray"
+                                BackgroundColor="White"
+                                HasShadow="False"
+                                Padding="0"
+                                CornerRadius="0"
+                                Grid.Row = "3"
+                                Grid.Column = "3">
+                            <Label x:Name="label33"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Large"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+                        <Frame x:Name="frame34"
+                                OutlineColor="LightGray"
+                                BackgroundColor="White"
+                                HasShadow="False"
+                                Padding="0"
+                                CornerRadius="0"
+                                Grid.Row = "3"
+                                Grid.Column = "4">
+                            <Label x:Name="label34"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Large"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+                        <!--Row 5-->
+                        <Frame x:Name="frame40"
+                                OutlineColor="LightGray"
+                                BackgroundColor="White"
+                                HasShadow="False"
+                                Padding="0"
+                                CornerRadius="0"
+                                Grid.Row = "4"
+                                Grid.Column = "0">
+                            <Label x:Name="label40"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Large"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+                        <Frame x:Name="frame41"
+                                OutlineColor="LightGray"
+                                BackgroundColor="White"
+                                HasShadow="False"
+                                Padding="0"
+                                CornerRadius="0"
+                                Grid.Row = "4"
+                                Grid.Column = "1">
+                            <Label x:Name="label41"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Large"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+                        <Frame x:Name="frame42"
+                                OutlineColor="LightGray"
+                                BackgroundColor="White"
+                                HasShadow="False"
+                                Padding="0"
+                                CornerRadius="0"
+                                Grid.Row = "4"
+                                Grid.Column = "2">
+                            <Label x:Name="label42"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Large"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+                        <Frame x:Name="frame43"
+                                OutlineColor="LightGray"
+                                BackgroundColor="White"
+                                HasShadow="False"
+                                Padding="0"
+                                CornerRadius="0"
+                                Grid.Row = "4"
+                                Grid.Column = "3">
+                            <Label x:Name="label43"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Large"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+                        <Frame x:Name="frame44"
+                                OutlineColor="LightGray"
+                                BackgroundColor="White"
+                                HasShadow="False"
+                                Padding="0"
+                                CornerRadius="0"
+                                Grid.Row = "4"
+                                Grid.Column = "4">
+                            <Label x:Name="label44"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Large"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+
+                        <!--Row 6-->
+                        <Frame x:Name="frame50"
+                                OutlineColor="LightGray"
+                                BackgroundColor="White"
+                                HasShadow="False"
+                                Padding="0"
+                                CornerRadius="0"
+                                Grid.Row = "5"
+                                Grid.Column = "0">
+                            <Label x:Name="label50"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Large"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+                        <Frame x:Name="frame51"
+                                OutlineColor="LightGray"
+                                BackgroundColor="White"
+                                HasShadow="False"
+                                Padding="0"
+                                CornerRadius="0"
+                                Grid.Row = "5"
+                                Grid.Column = "1">
+                            <Label x:Name="label51"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Large"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+                        <Frame x:Name="frame52"
+                                OutlineColor="LightGray"
+                                BackgroundColor="White"
+                                HasShadow="False"
+                                Padding="0"
+                                CornerRadius="0"
+                                Grid.Row = "5"
+                                Grid.Column = "2">
+                            <Label x:Name="label52"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Large"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+                        <Frame x:Name="frame53"
+                                OutlineColor="LightGray"
+                                BackgroundColor="White"
+                                HasShadow="False"
+                                Padding="0"
+                                CornerRadius="0"
+                                Grid.Row = "5"
+                                Grid.Column = "3">
+                            <Label x:Name="label53"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Large"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+                        <Frame x:Name="frame54"
+                                OutlineColor="LightGray"
+                                BackgroundColor="White"
+                                HasShadow="False"
+                                Padding="0"
+                                CornerRadius="0"
+                                Grid.Row = "5"
+                                Grid.Column = "4">
+                            <Label x:Name="label54"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Large"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" />
+                        </Frame>
+
+                    </Grid>
+                </StackLayout>
+            </AbsoluteLayout>
+        </StackLayout>
+        <StackLayout VerticalOptions="End" Padding="5">
+            <AbsoluteLayout x:Name="WordleKeyboardLayout" Padding="0" HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1" AbsoluteLayout.LayoutFlags="PositionProportional">
+                    <Grid x:Name="WordleKeyboard">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Frame
+                            x:Name="keyboardQ"
+                            BackgroundColor="Gray"
+                            HasShadow="False"
+                            Grid.Row = "0"
+                            Grid.Column = "0"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
+                            Padding="0"
+                            BindingContext="Q"
+                            >
+                            <Label Text="Q"
+                                  x:Name="labelKeyQ"
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+                                FontSize="Small"></Label>
+
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LetterEntered" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <Frame
+                             x:Name="keyboardW"
+                             BackgroundColor="Gray"
+                                HasShadow="False"
+                                Grid.Row = "0"
+                                Grid.Column = "1"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Padding="0"
+                                BindingContext="W"
+                                 >
+                            <Label Text="W"
+                                   x:Name="labelKeyW"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LetterEntered" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+
+                        <Frame
+                             x:Name="keyboardE"
+                             BackgroundColor="Gray"
+                                HasShadow="False"
+                                Grid.Row = "0"
+                                Grid.Column = "2"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Padding="0"
+                                BindingContext="E"
+                                 >
+                            <Label Text="E"
+                                   x:Name="labelKeyE"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LetterEntered" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <Frame
+                             x:Name="keyboardR"
+                             BackgroundColor="Gray"
+                                HasShadow="False"
+                                Grid.Row = "0"
+                                Grid.Column = "3"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Padding="0"
+                                BindingContext="R"
+                                 >
+                            <Label Text="R"
+                                   x:Name="labelKeyR"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LetterEntered" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <Frame
+                             x:Name="keyboardT"
+                             BackgroundColor="Gray"
+                                HasShadow="False"
+                                Grid.Row = "0"
+                                Grid.Column = "4"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Padding="0"
+                                BindingContext="T"
+                                 >
+                            <Label Text="T"
+                                   x:Name="labelKeyT"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LetterEntered" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <Frame
+                             x:Name="keyboardY"
+                             BackgroundColor="Gray"
+                                HasShadow="False"
+                                Grid.Row = "0"
+                                Grid.Column = "5"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Padding="0"
+                                BindingContext="Y"
+                                 >
+                            <Label Text="Y"
+                                   x:Name="labelKeyY"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LetterEntered" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <Frame
+                              x:Name="keyboardU"
+                              BackgroundColor="Gray"
+                                 HasShadow="False"
+                                Grid.Row = "0"
+                                Grid.Column = "6"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Padding="0"
+                                 BindingContext="U"
+                                 >
+                            <Label Text="U"
+                                   x:Name="labelKeyU"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LetterEntered" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <Frame
+                                x:Name="keyboardI"
+                              BackgroundColor="Gray"
+                                 HasShadow="False"
+                                Grid.Row = "0"
+                                Grid.Column = "7"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Padding="0"
+                                 BindingContext="I"
+                                 >
+                            <Label Text="I"
+                                   x:Name="labelKeyI"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LetterEntered" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <Frame
+                              x:Name="keyboardO"
+                              BackgroundColor="Gray"
+                                 HasShadow="False"
+                                Grid.Row = "0"
+                                Grid.Column = "8"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Padding="0"
+                                 BindingContext="O"
+                                 >
+                            <Label Text="O"
+                                   x:Name="labelKeyO"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LetterEntered" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <Frame
+                             x:Name="keyboardP"
+                             BackgroundColor="Gray"
+                                HasShadow="False"
+                                Grid.Row = "0"
+                                Grid.Column = "9"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Padding="0"
+                                BindingContext="P"
+                                 >
+                            <Label Text="P"
+                                   x:Name="labelKeyP"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LetterEntered" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </Grid>
+                </StackLayout>
+            </AbsoluteLayout>
+
+            <AbsoluteLayout x:Name="WordleKeyboardLayout2" Padding="0" HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1" AbsoluteLayout.LayoutFlags="PositionProportional">
+                    <Grid x:Name="WordleKeyboard2">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Frame
+                             x:Name="keyboardA"
+                             BackgroundColor= "Gray"
+                                HasShadow="False"
+                                Grid.Row = "0"
+                                Grid.Column = "0"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Padding="0"
+                                BindingContext="A"
+                                 >
+                            <Label Text="A"
+                                   x:Name="labelKeyA"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LetterEntered" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <Frame
+                             x:Name="keyboardS"
+                             BackgroundColor="Gray"
+                                HasShadow="False"
+                                Grid.Row = "0"
+                                Grid.Column = "1"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Padding="0"
+                                BindingContext="S"
+                                 >
+                            <Label Text="S"
+                                   x:Name="labelKeyS"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LetterEntered" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+
+                        <Frame x:Name="keyboardD"
+                                BackgroundColor="Gray"
+                                HasShadow="False"
+                                Grid.Row = "0"
+                                Grid.Column = "2"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Padding="0"
+                                BindingContext="D"
+                                 >
+                            <Label Text="D"
+                                   x:Name="labelKeyD"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LetterEntered" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <Frame
+                             x:Name="keyboardF"
+                             BackgroundColor="Gray"
+                             HasShadow="False"
+                                Grid.Row = "0"
+                                Grid.Column = "3"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Padding="0"
+                                BindingContext="F"
+                                 >
+                            <Label Text="F"
+                                   x:Name="labelKeyF"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LetterEntered" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <Frame
+                             x:Name="keyboardG"
+                             BackgroundColor="Gray"
+                             HasShadow="False"
+                                Grid.Row = "0"
+                                Grid.Column = "4"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Padding="0"
+                                BindingContext="G"
+                                 >
+                            <Label Text="G"
+                                   x:Name="labelKeyG"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LetterEntered" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <Frame
+                             x:Name="keyboardH"
+                             BackgroundColor="Gray"
+                                HasShadow="False"
+                                Grid.Row = "0"
+                                Grid.Column = "5"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Padding="0"
+                                BindingContext="H"
+                                 >
+                            <Label Text="H"
+                                   x:Name="labelKeyH"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LetterEntered" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <Frame
+                              x:Name="keyboardJ"
+                              BackgroundColor="Gray"
+                              HasShadow="False"
+                                Grid.Row = "0"
+                                Grid.Column = "6"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Padding="0"
+                                 BindingContext="J"
+                                 >
+                            <Label Text="J"
+                                   x:Name="labelKeyJ"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LetterEntered" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <Frame
+                              x:Name="keyboardK"
+                              BackgroundColor="Gray"
+                              HasShadow="False"
+                                Grid.Row = "0"
+                                Grid.Column = "7"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Padding="0"
+                                 BindingContext="K"
+                                 >
+                            <Label Text="K"
+                                   x:Name="labelKeyK"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LetterEntered" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <Frame
+                              x:Name="keyboardL"
+                              BackgroundColor="Gray"
+                              HasShadow="False"
+                                Grid.Row = "0"
+                                Grid.Column = "8"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Padding="0"
+                                 BindingContext="L"
+                                 >
+                            <Label Text="L"
+                                   x:Name="labelKeyL"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LetterEntered" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </Grid>
+                </StackLayout>
+            </AbsoluteLayout>
+
+            <AbsoluteLayout x:Name="WordleKeyboardLayout3" Padding="0" HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1" AbsoluteLayout.LayoutFlags="PositionProportional">
+                    <Grid x:Name="WordleKeyboard3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="1.5*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Frame x:Name="EnterKey"
+                             BackgroundColor="Gray" HasShadow="False"
+                                Grid.Row = "0"
+                                Grid.Column = "0"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Padding="0"
+                                 >
+                            <Label Text="Enter"
+                                   x:Name="labelKeyEnter"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="EnterWord" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                        <Frame
+                             x:Name="keyboardZ"
+                             BackgroundColor="Gray"
+                             HasShadow="False"
+                                Grid.Row = "0"
+                                Grid.Column = "1"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Padding="0"
+                                BindingContext="Z"
+                                 >
+                            <Label Text="Z"
+                                   x:Name="labelKeyZ"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LetterEntered" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+
+                        <Frame
+                             x:Name="keyboardX"
+                             BackgroundColor="Gray"
+                             HasShadow="False"
+                                Grid.Row = "0"
+                                Grid.Column = "2"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Padding="0"
+                                BindingContext="X"
+                                 >
+                            <Label Text="X"
+                                   x:Name="labelKeyX"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LetterEntered" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <Frame
+                             x:Name="keyboardC"
+                             BackgroundColor="Gray"
+                                HasShadow="False"
+                                Grid.Row = "0"
+                                Grid.Column = "3"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Padding="0"
+                                BindingContext="C"
+                                 >
+                            <Label Text="C"
+                                   x:Name="labelKeyC"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LetterEntered" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <Frame
+                             x:Name="keyboardV"
+                             BackgroundColor="Gray"
+                                HasShadow="False"
+                                Grid.Row = "0"
+                                Grid.Column = "4"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Padding="0"
+                                BindingContext="V"
+                                 >
+                            <Label Text="V"
+                                   x:Name="labelKeyV"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LetterEntered" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <Frame
+                             x:Name="keyboardB"
+                             BackgroundColor="Gray"
+                             HasShadow="False"
+                                Grid.Row = "0"
+                                Grid.Column = "5"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Padding="0"
+                                BindingContext="B"
+                                 >
+                            <Label Text="B"
+                                   x:Name="labelKeyB"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LetterEntered" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <Frame
+                              x:Name="keyboardN"
+                              BackgroundColor="Gray"
+                              HasShadow="False"
+                                Grid.Row = "0"
+                                Grid.Column = "6"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Padding="0"
+                                 BindingContext="N"
+                                 >
+                            <Label Text="N"
+                                   x:Name="labelKeyN"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LetterEntered" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <Frame
+                              x:Name="keyboardM"
+                              BackgroundColor="Gray"
+                              HasShadow="False"
+                                Grid.Row = "0"
+                                Grid.Column = "7"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Padding="0"
+                                 BindingContext="M"
+                                 >
+                            <Label Text="M"
+                                   x:Name="labelKeyM"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="LetterEntered" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <Frame x:Name="keyboardDel"
+                              BackgroundColor="Gray"
+                              HasShadow="False"
+                                Grid.Row = "0"
+                                Grid.Column = "8"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                Padding="0"
+                                 >
+                            <Label Text="Del"
+                                   x:Name="labelKeyDel"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="RemoveLetter" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </Grid>
+                </StackLayout>
+            </AbsoluteLayout>
+        </StackLayout>
+
+        <!--<Entry
+            x:Name="inputEntry"
+            IsVisible="false"
+            Keyboard="Text"
+            IsTextPredictionEnabled="False"
+            
+            TextChanged="EntryChanged"></Entry>-->
+
+    </StackLayout>
+
+</ContentPage>
+
