@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 namespace WordleClone
 {
     public class Word
@@ -46,6 +48,39 @@ namespace WordleClone
         public bool Matches(String newWord)
         {
             return word == newWord;
+        }
+
+        public List<char> MissingLetters(String opposingWord)
+        {
+            List<char> chars = new List<char>();
+            for (int i = 0; i < word.Length; i++)
+            {
+                chars.Add(word[i]);
+            }
+
+            for (int i = 0; i < opposingWord.Length; i++)
+            {
+                chars.Remove(opposingWord[i]);
+            }
+            return chars;
+        }
+
+        public List<char> MissingLetters(String opposingWord, int index)
+        {
+            List<char> chars = new List<char>();
+            for (int i = 0; i < word.Length; i++)
+            {
+                chars.Add(word[i]);
+            }
+
+            for (int i = 0; i < opposingWord.Length; i++)
+            {
+                if (i != index)
+                {
+                    chars.Remove(opposingWord[i]);
+                }
+            }
+            return chars;
         }
     }
 }

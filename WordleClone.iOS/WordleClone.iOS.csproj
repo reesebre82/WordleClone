@@ -28,6 +28,7 @@
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
     <CodesignKey>Apple Development: h1233h3211@gmail.com (H9M886R9TJ)</CodesignKey>
+    <CodesignProvision>iOS Team Provisioning Profile: com.brendanreese.Wordle-Clone</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>

@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WordleClone.MainPage">
-
+    <Grid>
     <StackLayout>
         <StackLayout VerticalOptions="Start">
             <Frame x:Name="TitleLabel" HorizontalOptions="FillAndExpand" HasShadow="False">
@@ -24,7 +24,6 @@
                         <!--Row 1-->
                         <Frame x:Name="frame00"
                              OutlineColor="LightGray"
-                             BackgroundColor="White"
                              HasShadow="False"
                              Padding="0"
                              CornerRadius="0"
@@ -40,7 +39,6 @@
 
                         <Frame x:Name="frame01"
                              OutlineColor="LightGray"
-                             BackgroundColor="White"
                              HasShadow="False"
                              Padding="0"
                              CornerRadius="0"
@@ -56,7 +54,6 @@
 
                         <Frame x:Name="frame02"
                              OutlineColor="LightGray"
-                             BackgroundColor="White"
                              HasShadow="False"
                              Padding="0"
                              CornerRadius="0"
@@ -72,7 +69,6 @@
 
                         <Frame x:Name="frame03"
                              OutlineColor="LightGray"
-                             BackgroundColor="White"
                              HasShadow="False"
                              Padding="0"
                              CornerRadius="0"
@@ -88,7 +84,6 @@
 
                         <Frame x:Name="frame04"
                              OutlineColor="LightGray"
-                             BackgroundColor="White"
                              HasShadow="False"
                              Padding="0"
                              CornerRadius="0"
@@ -106,7 +101,6 @@
                         <!--Row 2-->
                         <Frame x:Name="frame10"
                                 OutlineColor="LightGray"
-                                BackgroundColor="White"
                                 HasShadow="False"
                                 Padding="0"
                                 CornerRadius="0"
@@ -122,7 +116,6 @@
 
                         <Frame x:Name="frame11"
                                 OutlineColor="LightGray"
-                                BackgroundColor="White"
                                 HasShadow="False"
                                 Padding="11"
                                 CornerRadius="0"
@@ -138,7 +131,6 @@
 
                         <Frame x:Name="frame12"
                                 OutlineColor="LightGray"
-                                BackgroundColor="White"
                                 HasShadow="False"
                                 Padding="0"
                                 CornerRadius="0"
@@ -154,7 +146,6 @@
 
                         <Frame x:Name="frame13"
                                 OutlineColor="LightGray"
-                                BackgroundColor="White"
                                 HasShadow="False"
                                 Padding="0"
                                 CornerRadius="0"
@@ -170,7 +161,6 @@
 
                         <Frame x:Name="frame14"
                                 OutlineColor="LightGray"
-                                BackgroundColor="White"
                                 HasShadow="False"
                                 Padding="0"
                                 CornerRadius="0"
@@ -188,7 +178,6 @@
                         <!--Row 3-->
                         <Frame x:Name="frame20"
                                 OutlineColor="LightGray"
-                                BackgroundColor="White"
                                 HasShadow="False"
                                 Padding="0"
                                 CornerRadius="0"
@@ -204,7 +193,6 @@
 
                         <Frame x:Name="frame21"
                                 OutlineColor="LightGray"
-                                BackgroundColor="White"
                                 HasShadow="False"
                                 Padding="0"
                                 CornerRadius="0"
@@ -220,7 +208,6 @@
 
                         <Frame x:Name="frame22"
                                 OutlineColor="LightGray"
-                                BackgroundColor="White"
                                 HasShadow="False"
                                 Padding="0"
                                 CornerRadius="0"
@@ -236,7 +223,6 @@
 
                         <Frame x:Name="frame23"
                                 OutlineColor="LightGray"
-                                BackgroundColor="White"
                                 HasShadow="False"
                                 Padding="0"
                                 CornerRadius="0"
@@ -252,7 +238,6 @@
 
                         <Frame x:Name="frame24"
                                 OutlineColor="LightGray"
-                                BackgroundColor="White"
                                 HasShadow="False"
                                 Padding="0"
                                 CornerRadius="0"
@@ -269,7 +254,6 @@
                         <!--Row 4-->
                         <Frame x:Name="frame30"
                                 OutlineColor="LightGray"
-                                BackgroundColor="White"
                                 HasShadow="False"
                                 Padding="0"
                                 CornerRadius="0"
@@ -285,7 +269,6 @@
 
                         <Frame x:Name="frame31"
                                 OutlineColor="LightGray"
-                                BackgroundColor="White"
                                 HasShadow="False"
                                 Padding="0"
                                 CornerRadius="0"
@@ -301,7 +284,6 @@
 
                         <Frame x:Name="frame32"
                                 OutlineColor="LightGray"
-                                BackgroundColor="White"
                                 HasShadow="False"
                                 Padding="0"
                                 CornerRadius="0"
@@ -317,7 +299,6 @@
 
                         <Frame x:Name="frame33"
                                 OutlineColor="LightGray"
-                                BackgroundColor="White"
                                 HasShadow="False"
                                 Padding="0"
                                 CornerRadius="0"
@@ -333,7 +314,6 @@
 
                         <Frame x:Name="frame34"
                                 OutlineColor="LightGray"
-                                BackgroundColor="White"
                                 HasShadow="False"
                                 Padding="0"
                                 CornerRadius="0"
@@ -350,7 +330,6 @@
                         <!--Row 5-->
                         <Frame x:Name="frame40"
                                 OutlineColor="LightGray"
-                                BackgroundColor="White"
                                 HasShadow="False"
                                 Padding="0"
                                 CornerRadius="0"
@@ -366,7 +345,6 @@
 
                         <Frame x:Name="frame41"
                                 OutlineColor="LightGray"
-                                BackgroundColor="White"
                                 HasShadow="False"
                                 Padding="0"
                                 CornerRadius="0"
@@ -382,7 +360,6 @@
 
                         <Frame x:Name="frame42"
                                 OutlineColor="LightGray"
-                                BackgroundColor="White"
                                 HasShadow="False"
                                 Padding="0"
                                 CornerRadius="0"
@@ -398,7 +375,6 @@
 
                         <Frame x:Name="frame43"
                                 OutlineColor="LightGray"
-                                BackgroundColor="White"
                                 HasShadow="False"
                                 Padding="0"
                                 CornerRadius="0"
@@ -414,7 +390,6 @@
 
                         <Frame x:Name="frame44"
                                 OutlineColor="LightGray"
-                                BackgroundColor="White"
                                 HasShadow="False"
                                 Padding="0"
                                 CornerRadius="0"
@@ -432,7 +407,6 @@
                         <!--Row 6-->
                         <Frame x:Name="frame50"
                                 OutlineColor="LightGray"
-                                BackgroundColor="White"
                                 HasShadow="False"
                                 Padding="0"
                                 CornerRadius="0"
@@ -448,7 +422,6 @@
 
                         <Frame x:Name="frame51"
                                 OutlineColor="LightGray"
-                                BackgroundColor="White"
                                 HasShadow="False"
                                 Padding="0"
                                 CornerRadius="0"
@@ -464,7 +437,6 @@
 
                         <Frame x:Name="frame52"
                                 OutlineColor="LightGray"
-                                BackgroundColor="White"
                                 HasShadow="False"
                                 Padding="0"
                                 CornerRadius="0"
@@ -480,7 +452,6 @@
 
                         <Frame x:Name="frame53"
                                 OutlineColor="LightGray"
-                                BackgroundColor="White"
                                 HasShadow="False"
                                 Padding="0"
                                 CornerRadius="0"
@@ -496,7 +467,6 @@
 
                         <Frame x:Name="frame54"
                                 OutlineColor="LightGray"
-                                BackgroundColor="White"
                                 HasShadow="False"
                                 Padding="0"
                                 CornerRadius="0"
@@ -1160,7 +1130,30 @@
             
             TextChanged="EntryChanged"></Entry>-->
 
-    </StackLayout>
+     </StackLayout>
+
+             <StackLayout x:Name="EndingScreenOverlayColor" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+            </StackLayout>
+
+            <AbsoluteLayout
+                x:Name="EndingScreenOverlay"
+              HorizontalOptions="CenterAndExpand" 
+              VerticalOptions="CenterAndExpand" 
+              Opacity="1"
+              InputTransparent="True"
+                BackgroundColor="AliceBlue">
+                    
+                <Frame x:Name="EndingScreen" BackgroundColor="White" VerticalOptions="Center" HorizontalOptions="Center" CornerRadius="15.0">
+                    <StackLayout>
+                        
+                    </StackLayout>
+                </Frame>
+
+            </AbsoluteLayout>
+
+
+        </Grid>
 
 </ContentPage>
 

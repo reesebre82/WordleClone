@@ -20,6 +20,7 @@ namespace WordleClone
         GameManager gameManager;
 
         Tuple<Frame, Label>[,] labels;
+        Tuple<Frame, Label>[] keys;
 
         public Tuple<Frame, Label>[,] Labels {
             get { return labels; }
@@ -29,10 +30,22 @@ namespace WordleClone
         {
             InitializeComponent();
 
+            //fixes safe area for iOS Users
+            On<iOS>().SetUseSafeArea(true);
 
             UIGlobal.MainPage = this;
 
             gameManager = new GameManager();
+
+
+
+            Xamarin.Forms.Application.Current.RequestedThemeChanged += (s, a) =>
+            {
+                // Respond to the theme change
+                Console.WriteLine("Theme Changed");
+
+                SetupColors();
+            };
 
 
             SetupScreen();
@@ -50,11 +63,82 @@ namespace WordleClone
 
             };
 
+            keys = new Tuple<Frame, Label>[]
+            {
+                new Tuple<Frame, Label>(keyboardA, labelKeyA),
+                new Tuple<Frame, Label>(keyboardB, labelKeyB),
+                new Tuple<Frame, Label>(keyboardC, labelKeyC),
+                new Tuple<Frame, Label>(keyboardD, labelKeyD),
+                new Tuple<Frame, Label>(keyboardE, labelKeyE),
+                new Tuple<Frame, Label>(keyboardF, labelKeyF),
+                new Tuple<Frame, Label>(keyboardG, labelKeyG),
+                new Tuple<Frame, Label>(keyboardH, labelKeyH),
+                new Tuple<Frame, Label>(keyboardI, labelKeyI),
+                new Tuple<Frame, Label>(keyboardJ, labelKeyJ),
+                new Tuple<Frame, Label>(keyboardK, labelKeyK),
+                new Tuple<Frame, Label>(keyboardL, labelKeyL),
+                new Tuple<Frame, Label>(keyboardM, labelKeyM),
+                new Tuple<Frame, Label>(keyboardN, labelKeyN),
+                new Tuple<Frame, Label>(keyboardO, labelKeyO),
+                new Tuple<Frame, Label>(keyboardP, labelKeyP),
+                new Tuple<Frame, Label>(keyboardQ, labelKeyQ),
+                new Tuple<Frame, Label>(keyboardR, labelKeyR),
+                new Tuple<Frame, Label>(keyboardS, labelKeyS),
+                new Tuple<Frame, Label>(keyboardT, labelKeyT),
+                new Tuple<Frame, Label>(keyboardU, labelKeyU),
+                new Tuple<Frame, Label>(keyboardV, labelKeyV),
+                new Tuple<Frame, Label>(keyboardW, labelKeyW),
+                new Tuple<Frame, Label>(keyboardX, labelKeyX),
+                new Tuple<Frame, Label>(keyboardY, labelKeyY),
+                new Tuple<Frame, Label>(keyboardZ, labelKeyZ),
+                new Tuple<Frame, Label>(EnterKey, labelKeyEnter),
+                new Tuple<Frame, Label>(keyboardDel, labelKeyDel),
+            };
+
             SetupKeyboard();
+            SetupColors();
+        }
 
 
-            //fixes safe area for iOS Users
-            On<iOS>().SetUseSafeArea(true);
+        private void SetupColors()
+        {
+            // Setup colors on bottom
+            for (int i = 0; i < 28; i++)
+            {
+                int color = ColorManager.ReverseColorSearch(keys[i].Item1.BackgroundColor);
+                keys[i].Item2.TextColor = ColorManager.KeyboardTextColor(color != 0);
+
+                keys[i].Item1.BackgroundColor = ColorManager.FrameBackgroundColor(color);
+            }
+
+            // Setup colors on top
+            for(int i = 0; i < 6; i++)
+            {
+                for(int j = 0; j < 5; j++)
+                {
+                    int color = ColorManager.ReverseColorSearch(labels[i, j].Item1.BackgroundColor);
+                    var colorBorder = labels[i, j].Item1.BorderColor;
+                    if (color != -1)
+                    {
+                        labels[i, j].Item1.BackgroundColor = ColorManager.FrameBackgroundColor(color);
+                    }
+
+                    if(colorBorder != Color.Transparent)
+                    {
+                        if (labels[i, j].Item2.Text == null)
+                        {
+                            labels[i, j].Item1.BorderColor = ColorManager.IsLightMode() ? Color.LightGray: Color.Gray;
+                        }
+                        else
+                        {
+                            labels[i, j].Item1.BorderColor = ColorManager.IsLightMode() ? Color.Black : Color.LightGray;
+                        }
+                    }
+                }
+            }
+
+            // Sets Borders
+
         }
 
 
@@ -95,13 +179,41 @@ namespace WordleClone
             WordleKeyboard2.WidthRequest = screenWidth * 0.875;
             WordleKeyboard3.WidthRequest = screenWidth * 0.95;
 
+            EndingScreen.WidthRequest = screenWidth * 0.75;
+            EndingScreen.HeightRequest = screenWidth * 0.75;
+
+            EndingScreenOverlay.IsVisible = false;
+            EndingScreenOverlayColor.IsVisible = false;
+
+            EndingScreenOverlayColor.BackgroundColor = Color.FromHex("#FFFFFF");
+
+        }
+
+        async public void showAnimationEndingScreen()
+        {
+            var screenWidth = Convert.ToInt32(Math.Round(DeviceDisplay.MainDisplayInfo.Width / DeviceDisplay.MainDisplayInfo.Density));
+            var screenHeight = Convert.ToInt32(Math.Round(DeviceDisplay.MainDisplayInfo.Height / DeviceDisplay.MainDisplayInfo.Density));
+
+            await EndingScreenOverlay.TranslateTo(0, screenHeight, 0);
+            await EndingScreenOverlayColor.FadeTo(0, 0, Easing.Linear);
+
+            EndingScreenOverlay.IsVisible = true;
+            //EndingScreenOverlayColor.IsVisible = true;
+
+            EndingScreenOverlay.TranslateTo(0, 0, 250, Easing.SinOut);
+            EndingScreenOverlayColor.FadeTo(0.5, 250);
+
+            EndingScreenOverlayColor.IsVisible = true;
         }
 
         private void SetupKeyboard()
         {
-            UpdateKeyboard("abcdefghijklmnopqrstuvwxyz", Enumerable.Repeat(Color.FromRgb(r: 212, g: 214, b: 218), 27).ToArray(), Color.Black);
+            UpdateKeyboard("abcdefghijklmnopqrstuvwxyz", Enumerable.Repeat(Color.FromRgb(r: 212, g: 214, b: 218), 27).ToArray(), ColorManager.KeyboardTextColor(false));
             keyboardDel.BackgroundColor = Color.FromRgb(r: 212, g: 214, b: 218);
             EnterKey.BackgroundColor = Color.FromRgb(r: 212, g: 214, b: 218);
+
+            labelKeyEnter.TextColor = ColorManager.KeyboardTextColor(false);
+            labelKeyDel.TextColor = ColorManager.KeyboardTextColor(false);
         }
 
         async public void SetLetter(String letter, Frame frame, Label label)
@@ -109,7 +221,7 @@ namespace WordleClone
             //Animation
             await frame.ScaleTo(1.25, 50);
             //Frame
-            frame.BorderColor = Color.Black;
+            frame.BorderColor = ColorManager.IsLightMode() ? Color.Black : Color.LightGray;
 
             //Label
             label.Text = letter;
@@ -198,6 +310,91 @@ namespace WordleClone
             }
         }
 
+        async private void DanceLetter(Frame frame)
+        {
+            await frame.TranslateTo(0, -50, 150);
+            await frame.TranslateTo(0, 0, 150);
+            await frame.TranslateTo(0, -25, 150);
+            await frame.TranslateTo(0, 0, 150);
+        }
+
+        async public void SolveDance(int guess)
+        {
+            Console.WriteLine("Dancing lane: " + guess);
+            switch (guess)
+            {
+                case 0:
+                    DanceLetter(frame00);
+                    await Task.Delay(100);
+                    DanceLetter(frame01);
+                    await Task.Delay(100);
+                    DanceLetter(frame02);
+                    await Task.Delay(100);
+                    DanceLetter(frame03);
+                    await Task.Delay(100);
+                    DanceLetter(frame04);
+                    break;
+                case 1:
+                    DanceLetter(frame10);
+                    await Task.Delay(100);
+                    DanceLetter(frame11);
+                    await Task.Delay(100);
+                    DanceLetter(frame12);
+                    await Task.Delay(100);
+                    DanceLetter(frame13);
+                    await Task.Delay(100);
+                    DanceLetter(frame14);
+                    break;
+                case 2:
+                    DanceLetter(frame20);
+                    await Task.Delay(100);
+                    DanceLetter(frame21);
+                    await Task.Delay(100);
+                    DanceLetter(frame22);
+                    await Task.Delay(100);
+                    DanceLetter(frame23);
+                    await Task.Delay(100);
+                    DanceLetter(frame24);
+                    break;
+                case 3:
+                    DanceLetter(frame30);
+                    await Task.Delay(100);
+                    DanceLetter(frame31);
+                    await Task.Delay(100);
+                    DanceLetter(frame32);
+                    await Task.Delay(100);
+                    DanceLetter(frame33);
+                    await Task.Delay(100);
+                    DanceLetter(frame34);
+                    break;
+                case 4:
+                    DanceLetter(frame40);
+                    await Task.Delay(100);
+                    DanceLetter(frame41);
+                    await Task.Delay(100);
+                    DanceLetter(frame42);
+                    await Task.Delay(100);
+                    DanceLetter(frame43);
+                    await Task.Delay(100);
+                    DanceLetter(frame44);
+                    break;
+                case 5:
+                    DanceLetter(frame50);
+                    await Task.Delay(100);
+                    DanceLetter(frame51);
+                    await Task.Delay(100);
+                    DanceLetter(frame52);
+                    await Task.Delay(100);
+                    DanceLetter(frame53);
+                    await Task.Delay(100);
+                    DanceLetter(frame54);
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
         public void UpdateKeyboard(string word, Color[] colors, Color labelColor)
         {
             for (int i = 0; i < word.Length; i++)
@@ -206,182 +403,182 @@ namespace WordleClone
 
                 switch (letter) {
                     case 'a':
-                        if (keyboardA.BackgroundColor != Color.FromRgb(r: 122, g: 168, b: 107))
+                        if (keyboardA.BackgroundColor != ColorManager.FrameBackgroundColor(3))
                         {
                             keyboardA.BackgroundColor = colors[i];
                             labelKeyA.TextColor = labelColor;
                         }
                         break;
                     case 'b':
-                        if (keyboardB.BackgroundColor != Color.FromRgb(r: 122, g: 168, b: 107))
+                        if (keyboardB.BackgroundColor != ColorManager.FrameBackgroundColor(3))
                         {
                             keyboardB.BackgroundColor = colors[i];
                             labelKeyB.TextColor = labelColor;
                         }
                         break;
                     case 'c':
-                        if (keyboardC.BackgroundColor != Color.FromRgb(r: 122, g: 168, b: 107))
+                        if (keyboardC.BackgroundColor != ColorManager.FrameBackgroundColor(3))
                         {
                             keyboardC.BackgroundColor = colors[i];
                             labelKeyC.TextColor = labelColor;
                         }
                         break;
                     case 'd':
-                        if (keyboardD.BackgroundColor != Color.FromRgb(r: 122, g: 168, b: 107))
+                        if (keyboardD.BackgroundColor != ColorManager.FrameBackgroundColor(3))
                         {
                             keyboardD.BackgroundColor = colors[i];
                             labelKeyD.TextColor = labelColor;
                         }
                         break;
                     case 'e':
-                        if (keyboardE.BackgroundColor != Color.FromRgb(r: 122, g: 168, b: 107))
+                        if (keyboardE.BackgroundColor != ColorManager.FrameBackgroundColor(3))
                         {
                             keyboardE.BackgroundColor = colors[i];
                             labelKeyE.TextColor = labelColor;
                         }
                         break;
                     case 'f':
-                        if (keyboardF.BackgroundColor != Color.FromRgb(r: 122, g: 168, b: 107))
+                        if (keyboardF.BackgroundColor != ColorManager.FrameBackgroundColor(3))
                         {
                             keyboardF.BackgroundColor = colors[i];
                             labelKeyF.TextColor = labelColor;
                         }
                         break;
                     case 'g':
-                        if (keyboardG.BackgroundColor != Color.FromRgb(r: 122, g: 168, b: 107))
+                        if (keyboardG.BackgroundColor != ColorManager.FrameBackgroundColor(3))
                         {
                             keyboardG.BackgroundColor = colors[i];
                             labelKeyG.TextColor = labelColor;
                         }
                         break;
                     case 'h':
-                        if (keyboardH.BackgroundColor != Color.FromRgb(r: 122, g: 168, b: 107))
+                        if (keyboardH.BackgroundColor != ColorManager.FrameBackgroundColor(3))
                         {
                             keyboardH.BackgroundColor = colors[i];
                             labelKeyH.TextColor = labelColor;
                         }
                         break;
                     case 'i':
-                        if (keyboardI.BackgroundColor != Color.FromRgb(r: 122, g: 168, b: 107))
+                        if (keyboardI.BackgroundColor != ColorManager.FrameBackgroundColor(3))
                         {
                             keyboardI.BackgroundColor = colors[i];
                             labelKeyI.TextColor = labelColor;
                         }
                         break;
                     case 'j':
-                        if (keyboardJ.BackgroundColor != Color.FromRgb(r: 122, g: 168, b: 107))
+                        if (keyboardJ.BackgroundColor != ColorManager.FrameBackgroundColor(3))
                         {
                             keyboardJ.BackgroundColor = colors[i];
                             labelKeyJ.TextColor = labelColor;
                         }
                         break;
                     case 'k':
-                        if (keyboardK.BackgroundColor != Color.FromRgb(r: 122, g: 168, b: 107))
+                        if (keyboardK.BackgroundColor != ColorManager.FrameBackgroundColor(3))
                         {
                             keyboardK.BackgroundColor = colors[i];
                             labelKeyK.TextColor = labelColor;
                         }
                         break;
                     case 'l':
-                        if (keyboardL.BackgroundColor != Color.FromRgb(r: 122, g: 168, b: 107))
+                        if (keyboardL.BackgroundColor != ColorManager.FrameBackgroundColor(3))
                         {
                             keyboardL.BackgroundColor = colors[i];
                             labelKeyL.TextColor = labelColor;
                         }
                         break;
                     case 'm':
-                        if (keyboardM.BackgroundColor != Color.FromRgb(r: 122, g: 168, b: 107))
+                        if (keyboardM.BackgroundColor != ColorManager.FrameBackgroundColor(3))
                         {
                             keyboardM.BackgroundColor = colors[i];
                             labelKeyM.TextColor = labelColor;
                         }
                         break;
                     case 'n':
-                        if (keyboardN.BackgroundColor != Color.FromRgb(r: 122, g: 168, b: 107))
+                        if (keyboardN.BackgroundColor != ColorManager.FrameBackgroundColor(3))
                         {
                             keyboardN.BackgroundColor = colors[i];
                             labelKeyN.TextColor = labelColor;
                         }
                         break;
                     case 'o':
-                        if (keyboardO.BackgroundColor != Color.FromRgb(r: 122, g: 168, b: 107))
+                        if (keyboardO.BackgroundColor != ColorManager.FrameBackgroundColor(3))
                         {
                             keyboardO.BackgroundColor = colors[i];
                             labelKeyO.TextColor = labelColor;
                         }
                         break;
                     case 'p':
-                        if (keyboardP.BackgroundColor != Color.FromRgb(r: 122, g: 168, b: 107))
+                        if (keyboardP.BackgroundColor != ColorManager.FrameBackgroundColor(3))
                         {
                             keyboardP.BackgroundColor = colors[i];
                             labelKeyP.TextColor = labelColor;
                         }
                         break;
                     case 'q':
-                        if (keyboardQ.BackgroundColor != Color.FromRgb(r: 122, g: 168, b: 107))
+                        if (keyboardQ.BackgroundColor != ColorManager.FrameBackgroundColor(3))
                         {
                             keyboardQ.BackgroundColor = colors[i];
                             labelKeyQ.TextColor = labelColor;
                         }
                         break;
                     case 'r':
-                        if (keyboardR.BackgroundColor != Color.FromRgb(r: 122, g: 168, b: 107))
+                        if (keyboardR.BackgroundColor != ColorManager.FrameBackgroundColor(3))
                         {
                             keyboardR.BackgroundColor = colors[i];
                             labelKeyR.TextColor = labelColor;
                         }
                         break;
                     case 's':
-                        if (keyboardS.BackgroundColor != Color.FromRgb(r: 122, g: 168, b: 107))
+                        if (keyboardS.BackgroundColor != ColorManager.FrameBackgroundColor(3))
                         {
                             keyboardS.BackgroundColor = colors[i];
                             labelKeyS.TextColor = labelColor;
                         }
                         break;
                     case 't':
-                        if (keyboardT.BackgroundColor != Color.FromRgb(r: 122, g: 168, b: 107))
+                        if (keyboardT.BackgroundColor != ColorManager.FrameBackgroundColor(3))
                         {
                             keyboardT.BackgroundColor = colors[i];
                             labelKeyT.TextColor = labelColor;
                         }
                         break;
                     case 'u':
-                        if (keyboardU.BackgroundColor != Color.FromRgb(r: 122, g: 168, b: 107))
+                        if (keyboardU.BackgroundColor != ColorManager.FrameBackgroundColor(3))
                         {
                             keyboardU.BackgroundColor = colors[i];
                             labelKeyU.TextColor = labelColor;
                         }
                         break;
                     case 'v':
-                        if (keyboardV.BackgroundColor != Color.FromRgb(r: 122, g: 168, b: 107))
+                        if (keyboardV.BackgroundColor != ColorManager.FrameBackgroundColor(3))
                         {
                             keyboardV.BackgroundColor = colors[i];
                             labelKeyV.TextColor = labelColor;
                         }
                         break;
                     case 'w':
-                        if (keyboardW.BackgroundColor != Color.FromRgb(r: 122, g: 168, b: 107))
+                        if (keyboardW.BackgroundColor != ColorManager.FrameBackgroundColor(3))
                         {
                             keyboardW.BackgroundColor = colors[i];
                             labelKeyW.TextColor = labelColor;
                         }
                         break;
                     case 'x':
-                        if (keyboardX.BackgroundColor != Color.FromRgb(r: 122, g: 168, b: 107))
+                        if (keyboardX.BackgroundColor != ColorManager.FrameBackgroundColor(3))
                         { 
                             keyboardX.BackgroundColor = colors[i];
                             labelKeyX.TextColor = labelColor;
                         }
                         break;
                     case 'y':
-                        if (keyboardY.BackgroundColor != Color.FromRgb(r: 122, g: 168, b: 107))
+                        if (keyboardY.BackgroundColor != ColorManager.FrameBackgroundColor(3))
                         {
                             keyboardY.BackgroundColor = colors[i];
                             labelKeyY.TextColor = labelColor;
                         }
                         break;
                     case 'z':
-                        if (keyboardZ.BackgroundColor != Color.FromRgb(r: 122, g: 168, b: 107))
+                        if (keyboardZ.BackgroundColor != ColorManager.FrameBackgroundColor(3))
                         {
                             keyboardZ.BackgroundColor = colors[i];
                             labelKeyZ.TextColor = labelColor;
@@ -399,6 +596,9 @@ namespace WordleClone
         {
             gameManager.EnterWord();
         }
+
+
+        
     }
 
     public static class UIGlobal
