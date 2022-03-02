@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/FrontSection/Header/Header'
+import SnapSection from './components/SnapSection'
+import ScrollSnapScroller from './components/ScrollSnapScroller'
+import ProjectContainer from './components/ProjectsSection/ProjectContainer';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="Container">
+      <ScrollSnapScroller>
+        <SnapSection bgColor="cornflowerblue">
+          <Header />
+        </SnapSection>
+        <SnapSection bgColor="white">
+          <ProjectContainer />
+        </SnapSection>
+        <SnapSection bgColor="cornflowerblue"/>
+      </ScrollSnapScroller>
     </div>
   );
 }
